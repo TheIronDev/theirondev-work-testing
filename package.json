@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/TheIronDev/tystark-testing-v2-functions/issues"
   },
-  "homepage": "https://github.com/TheIronDev/tystark-testing-v2-functions#readme"
+  "homepage": "https://github.com/TheIronDev/tystark-testing-v2-functions#readme",
+  "dependencies": {
+    "firebase-admin": "^10.1.0"
+  }
 }
