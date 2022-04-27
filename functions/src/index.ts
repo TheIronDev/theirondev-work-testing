@@ -10,9 +10,9 @@ const handler = (functionName: string) => {
   };
 };
 
-const topic = 'tystark-testing-v2-functions-topic';
-const bucket = 'tystark-testing-v2-functions';
-const eventType = 'eventType';
+const topic = "tystark-testing-v2-functions-topic";
+const bucket = "tystark-testing-v2-functions";
+const eventType = "eventType";
 
 /* eslint-disable max-len */
 export const onalertpublished = alerts.onAlertPublished("alertType", handler("onAlertPublished"));
