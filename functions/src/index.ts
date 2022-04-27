@@ -10,6 +10,10 @@ const handler = (functionName: string) => {
   };
 };
 
+const topic = 'tystark-testing-v2-functions-topic';
+const bucket = 'tystark-testing-v2-functions';
+const eventType = 'eventType';
+
 /* eslint-disable max-len */
 export const onalertpublished = alerts.onAlertPublished("alertType", handler("onAlertPublished"));
 export const onnewanrissuepublished = alerts.crashlytics.onNewAnrIssuePublished(handler("onNewAnrIssuePublished"));
@@ -21,9 +25,9 @@ export const onvelocityalertpublished = alerts.crashlytics.onVelocityAlertPublis
 export const onnewtesteriosdevicepublished = alerts.appDistribution.onNewTesterIosDevicePublished(handler("onNewTesterIosDevicePublished"));
 export const onplanautomatedupdatepublished = alerts.billing.onPlanAutomatedUpdatePublished(handler("onPlanAutomatedUpdatePublished"));
 export const onplanupdatepublished = alerts.billing.onPlanUpdatePublished(handler("onPlanUpdatePublished"));
-export const oncustomeventpublished = eventarc.onCustomEventPublished("eventType", handler("onCustomEventPublished"));
-export const onobjectarchived = storage.onObjectArchived("bucket", handler("onObjectArchived"));
-export const onobjectdeleted = storage.onObjectDeleted("bucket", handler("onObjectDeleted"));
-export const onobjectfinalized = storage.onObjectFinalized("bucket", handler("onObjectFinalized"));
-export const onobjectmetadataupdated = storage.onObjectMetadataUpdated("bucket", handler("onObjectMetadataUpdated"));
-export const onmessagepublished = pubsub.onMessagePublished("topic", handler("onMessagePublished"));
+export const oncustomeventpublished = eventarc.onCustomEventPublished(eventType, handler("onCustomEventPublished"));
+export const onobjectarchived = storage.onObjectArchived(bucket, handler("onObjectArchived"));
+export const onobjectdeleted = storage.onObjectDeleted(bucket, handler("onObjectDeleted"));
+export const onobjectfinalized = storage.onObjectFinalized(bucket, handler("onObjectFinalized"));
+export const onobjectmetadataupdated = storage.onObjectMetadataUpdated(bucket, handler("onObjectMetadataUpdated"));
+export const onmessagepublished = pubsub.onMessagePublished(topic, handler("onMessagePublished"));
