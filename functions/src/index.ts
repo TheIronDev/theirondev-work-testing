@@ -11,7 +11,7 @@ initializeApp();
 
 const handler = (functionName: string) => {
   return (cloudEvent: CloudEvent) => {
-    logger.log(`Cloud Event ${functionName}`, cloudEvent);
+    logger.log(`Cloud Event ${functionName}`, {cloudEvent});
   };
 };
 
