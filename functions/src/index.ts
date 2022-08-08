@@ -2,7 +2,7 @@ import {logger} from "firebase-functions";
 import {initializeApp} from "firebase-admin/app";
 
 import {
-  CloudEvent, alerts, pubsub, storage,
+  CloudEvent, alerts, pubsub, storage, database,
   // eventarc,
 } from "firebase-functions/v2";
 
@@ -10,13 +10,15 @@ initializeApp();
 
 
 const handler = (functionName: string) => {
-  return (cloudEvent: CloudEvent) => {
-    logger.log(`Cloud Event ${functionName}`, {cloudEvent});
+  return (cloudEvent: CloudEvent<any>) => {
+    logger.log(cloudEvent.type);
+    return cloudEvent;
   };
 };
 
 const topic = "tystark-testing-v2-functions-topic";
 const bucket = "tystark-testing-v2-functions";
+const ref = "/ref/{users}";
 
 /* eslint-disable max-len */
 // export const onalertpublished = alerts.onAlertPublished("alertType", handler("onAlertPublished"));
@@ -35,3 +37,8 @@ export const onobjectdeleted = storage.onObjectDeleted(bucket, handler("onObject
 export const onobjectfinalized = storage.onObjectFinalized(bucket, handler("onObjectFinalized"));
 export const onobjectmetadataupdated = storage.onObjectMetadataUpdated(bucket, handler("onObjectMetadataUpdated"));
 export const onmessagepublished = pubsub.onMessagePublished(topic, handler("onMessagePublished"));
+
+export const onvaluedeleted = database.onValueDeleted(ref, handler("onValueDeleted"));
+export const onvaluecreated = database.onValueCreated(ref, handler("onValueCreated"));
+export const onvalueupdated = database.onValueUpdated(ref, handler("onValueUpdated"));
+export const onvaluewritten = database.onValueWritten(ref, handler("onValueWritten"));
