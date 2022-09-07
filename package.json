@@ -1,5 +1,5 @@
 {
-  "name": "tystark-testing-v2-functions",
+  "name": "theirondev-work-testing",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/TheIronDev/tystark-testing-v2-functions#readme",
   "dependencies": {
+    "@typescript-eslint/typescript-estree": "^5.36.2",
     "firebase-admin": "^10.1.0"
   }
 }

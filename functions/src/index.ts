@@ -16,8 +16,8 @@ const handler = (functionName: string) => {
   };
 };
 
-const topic = "tystark-testing-v2-functions-topic";
-const bucket = "tystark-testing-v2-functions";
+const topic = "theirondev-work-testing-topic";
+const bucket = "theirondev-work-testing.appspot.com";
 const ref = "/ref/{users}";
 
 /* eslint-disable max-len */
